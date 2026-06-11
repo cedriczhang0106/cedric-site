@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CEDRIC — AI Training Lead · AIGC Artist</title>
+  <meta name="description" content="Decoding Aesthetics, Aligning Vision.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== 进场:垂直缩略图堆叠 ===== -->
+  <div class="intro" id="intro">
+    <p class="intro__edge intro__edge--l mono">HUMAN TASTE</p>
+    <p class="intro__edge intro__edge--r mono">MACHINE SPEED</p>
+    <p class="intro__line" data-i18n="intro.line"></p>
+    <!-- 开屏 6 张:工作→机器觉醒→灵感→创造→落墨→起飞(03 GRAVITY / 06 Brick 留作素材未用) -->
+    <div class="intro__stack" id="introStack">
+      <img src="assets/intro-01.jpg" alt="">
+      <img src="assets/intro-02.jpg" alt="">
+      <img src="assets/intro-04.jpg" alt="">
+      <img src="assets/intro-05.jpg" alt="">
+      <img src="assets/intro-07.jpg" alt="">
+      <img src="assets/intro-08.jpg" alt="">
+    </div>
+  </div>
+
+  <!-- ===== 导航(Cappen 式:每列名字在上、进度段在下) ===== -->
+  <header class="nav">
+    <div class="nav__col">
+      <a class="nav__logo" href="#top">CEDRIC</a>
+      <i class="nav__seg"><b></b></i>
+    </div>
+    <div class="nav__col nav__col--link mono">
+      <a href="#about"><span class="nav__dot"></span><span data-i18n="nav.about"></span></a>
+      <i class="nav__seg"><b></b></i>
+    </div>
+    <div class="nav__col nav__col--link mono">
+      <a href="#done"><span class="nav__dot"></span><span data-i18n="nav.done"></span></a>
+      <i class="nav__seg"><b></b></i>
+    </div>
+    <div class="nav__col nav__col--link mono">
+      <a href="#collab"><span class="nav__dot"></span><span data-i18n="nav.collab"></span></a>
+      <i class="nav__seg"><b></b></i>
+    </div>
+    <div class="nav__col">
+      <div class="nav__rrow">
+        <a class="nav__cta mono" href="#contact" data-i18n="nav.contact"></a>
+        <button class="nav__lang mono" id="langToggle">EN</button>
+      </div>
+      <i class="nav__seg"><b></b></i>
+    </div>
+  </header>
+
+  <!-- ===== 水墨鼠标轨迹层 ===== -->
+  <canvas id="inkCanvas" aria-hidden="true"></canvas>
+
+  <main id="top">
+
+    <!-- ===== HERO 大字报 ===== -->
+    <section class="hero" id="hero">
+      <p class="hero__edge hero__edge--l mono" data-i18n="hero.edgeL"></p>
+      <p class="hero__edge hero__edge--r mono" data-i18n="hero.edgeR"></p>
+      <h1 class="hero__title" aria-label="Decoding Aesthetics Aligning Vision">
+        <span class="hline"><span class="hword">DECODING</span></span>
+        <span class="hline"><span class="hword">AESTHETICS</span></span>
+        <span class="hline hline--media">
+          <span class="hword">ALIGN</span>
+          <span class="hmedia"><video id="inlineVid" src="assets/hero-main.mp4" muted playsinline autoplay loop preload="auto"></video></span>
+          <span class="hword">ING</span>
+          <span class="hword hword--vision">VISION</span>
+        </span>
+      </h1>
+      <div class="hero__blurb" data-i18n-html="hero.blurb"></div>
+      <div class="hero__rules"><i></i><i></i><i></i></div>
+    </section>
+
+    <!-- ===== 跑马灯 ===== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track" id="marqueeTrack">
+        <span>AI TRAINING&nbsp;✕&nbsp;AIGC ART&nbsp;✕&nbsp;DATA&nbsp;✕&nbsp;EVAL&nbsp;✕&nbsp;WORKFLOW&nbsp;✕&nbsp;MOTION&nbsp;✕&nbsp;</span>
+        <span>AI TRAINING&nbsp;✕&nbsp;AIGC ART&nbsp;✕&nbsp;DATA&nbsp;✕&nbsp;EVAL&nbsp;✕&nbsp;WORKFLOW&nbsp;✕&nbsp;MOTION&nbsp;✕&nbsp;</span>
+      </div>
+    </div>
+
+    <!-- ===== 衬线宣言(黑底) ===== -->
+    <section class="statement">
+      <p class="statement__text serif" data-i18n-html="statement.text"></p>
+      <p class="statement__sign mono" data-i18n="statement.sign"></p>
+      <div class="statement__strip" aria-hidden="true">
+        <span class="sframe"><img src="assets/intro-01.jpg" alt=""></span>
+        <span class="sframe"><img src="assets/intro-02.jpg" alt=""></span>
+        <span class="sframe"><img src="assets/intro-03.jpg" alt=""></span>
+        <span class="sframe"><img src="assets/intro-04.jpg" alt=""></span>
+        <span class="sframe"><img src="assets/intro-05.jpg" alt=""></span>
+        <span class="sframe"><img src="assets/intro-06.jpg" alt=""></span>
+        <span class="sframe"><img src="assets/intro-07.jpg" alt=""></span>
+        <span class="sframe"><img src="assets/intro-08.jpg" alt=""></span>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT 六关键词大字列表(C·E·D·R·I·C) ===== -->
+    <section class="about" id="about">
+      <header class="sec-head">
+        <span class="sec-head__label mono" data-i18n="about.chapter"></span>
+        <span class="sec-head__count mono">( 06 )</span>
+      </header>
+      <ul class="kwlist">
+        <li class="kwrow" data-idx="01"><span class="kwrow__idx mono">01</span><span class="kwrow__word">Curated</span><span class="kwrow__desc" data-i18n="about.k1"></span></li>
+        <li class="kwrow" data-idx="02"><span class="kwrow__idx mono">02</span><span class="kwrow__word">Exponential</span><span class="kwrow__desc" data-i18n="about.k2"></span></li>
+        <li class="kwrow" data-idx="03"><span class="kwrow__idx mono">03</span><span class="kwrow__word">Data-Driven</span><span class="kwrow__desc" data-i18n="about.k3"></span></li>
+        <li class="kwrow" data-idx="04"><span class="kwrow__idx mono">04</span><span class="kwrow__word">Rigorous</span><span class="kwrow__desc" data-i18n="about.k4"></span></li>
+        <li class="kwrow" data-idx="05"><span class="kwrow__idx mono">05</span><span class="kwrow__word">Iterative</span><span class="kwrow__desc" data-i18n="about.k5"></span></li>
+        <li class="kwrow" data-idx="06"><span class="kwrow__idx mono">06</span><span class="kwrow__word">Creative</span><span class="kwrow__desc" data-i18n="about.k6"></span></li>
+      </ul>
+    </section>
+
+    <!-- ===== WHAT I HAVE DONE 档案行 ===== -->
+    <section class="done" id="done">
+      <h2 class="giant" data-i18n="done.title"></h2>
+      <p class="done__lead" data-i18n="done.lead"></p>
+      <ul class="filelist">
+        <li class="filerow"><span class="filerow__no mono">FILE 01</span><h3 data-i18n="done.c1"></h3><p data-i18n="done.c1d"></p><span class="filerow__tags mono">Caption · QC · SOP</span></li>
+        <li class="filerow"><span class="filerow__no mono">FILE 02</span><h3 data-i18n="done.c2"></h3><p data-i18n="done.c2d"></p><span class="filerow__tags mono">Benchmark · Rubric · Report</span></li>
+        <li class="filerow"><span class="filerow__no mono">FILE 03</span><h3 data-i18n="done.c3"></h3><p data-i18n="done.c3d"></p><span class="filerow__tags mono">LLM · Pipeline · Coze</span></li>
+        <li class="filerow"><span class="filerow__no mono">FILE 04</span><h3 data-i18n="done.c4"></h3><p data-i18n="done.c4d"></p><span class="filerow__tags mono">Video · Script · Growth</span></li>
+        <li class="filerow"><span class="filerow__no mono">FILE 05</span><h3 data-i18n="done.c5"></h3><p data-i18n="done.c5d"></p><span class="filerow__tags mono">Script · Bot · Batch</span></li>
+        <li class="filerow"><span class="filerow__no mono">FILE 06</span><h3 data-i18n="done.c6"></h3><p data-i18n="done.c6d"></p><span class="filerow__tags mono">Image · Video · Concept</span></li>
+        <li class="filerow"><span class="filerow__no mono">FILE 07</span><h3 data-i18n="done.c7"></h3><p data-i18n="done.c7d"></p><span class="filerow__tags mono">Claude · Prompt · This Site</span></li>
+      </ul>
+    </section>
+
+    <!-- ===== WORKS 列表(暂时隐藏:有作品后删掉 hidden 属性、把导航链接加回即可) ===== -->
+    <section class="works" id="work" hidden>
+      <h2 class="giant" data-i18n="work.title"></h2>
+      <ul class="worklist" id="worklist">
+        <li class="workrow" data-thumb="assets/poster-01.svg">
+          <span class="workrow__name" data-i18n="work.w1"></span>
+          <span class="workrow__meta mono" data-i18n="work.w1t"></span>
+          <span class="workrow__year mono">2026</span>
+        </li>
+        <li class="workrow" data-thumb="assets/hero-poster.jpg">
+          <span class="workrow__name" data-i18n="work.w2"></span>
+          <span class="workrow__meta mono" data-i18n="work.w2t"></span>
+          <span class="workrow__year mono">2026</span>
+        </li>
+        <li class="workrow" data-thumb="assets/poster-01.svg">
+          <span class="workrow__name" data-i18n="work.w3"></span>
+          <span class="workrow__meta mono" data-i18n="work.w3t"></span>
+          <span class="workrow__year mono">2025</span>
+        </li>
+      </ul>
+      <img class="workthumb" id="workThumb" src="assets/poster-01.svg" alt="">
+    </section>
+
+    <!-- ===== COLLABORATORS 协作卡片网格 ===== -->
+    <section class="collab" id="collab">
+      <header class="sec-head">
+        <span class="sec-head__label mono" data-i18n="collab.chapter"></span>
+        <span class="sec-head__count mono">( 08 )</span>
+      </header>
+      <h2 class="giant">COLLABORATORS</h2>
+      <p class="collab__lead" data-i18n="collab.lead"></p>
+
+      <div class="collab__grid" id="collabGrid">
+        <svg id="collabLines" aria-hidden="true"></svg>
+
+        <p class="cgroup mono" data-i18n="collab.g1"></p>
+        <div class="pcards">
+          <article class="pcard" data-id="claude" data-links="obsidian,github,codex,vscode">
+            <div class="pcard__top">
+              <span class="pcard__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 12V2.4" transform="rotate(0 12 12)"/><path d="M12 12V4.8" transform="rotate(30 12 12)"/><path d="M12 12V3.4" transform="rotate(58 12 12)"/><path d="M12 12V5.2" transform="rotate(87 12 12)"/><path d="M12 12V2.8" transform="rotate(115 12 12)"/><path d="M12 12V4.8" transform="rotate(148 12 12)"/><path d="M12 12V2.6" transform="rotate(177 12 12)"/><path d="M12 12V4.6" transform="rotate(205 12 12)"/><path d="M12 12V3.4" transform="rotate(235 12 12)"/><path d="M12 12V5.2" transform="rotate(262 12 12)"/><path d="M12 12V2.8" transform="rotate(290 12 12)"/><path d="M12 12V4.8" transform="rotate(323 12 12)"/></svg></span>
+              <span class="pcard__badge mono">AI</span>
+            </div>
+            <h3 class="pcard__name">Claude</h3>
+            <p class="pcard__role" data-i18n="collab.claudeRole"></p>
+            <p class="pcard__desc" data-i18n="collab.claudeDesc"></p>
+            <p class="pcard__tags mono">Strategy · Writing · Architect</p>
+          </article>
+
+          <article class="pcard" data-id="codex" data-links="obsidian,github">
+            <div class="pcard__top">
+              <span class="pcard__icon"><svg viewBox="0 0 24 24"><g fill="currentColor"><circle cx="12" cy="6" r="4.6"/><circle cx="12" cy="18" r="4.6"/><circle cx="6" cy="12" r="4.6"/><circle cx="18" cy="12" r="4.6"/><circle cx="7.8" cy="7.8" r="4.2"/><circle cx="16.2" cy="7.8" r="4.2"/><circle cx="7.8" cy="16.2" r="4.2"/><circle cx="16.2" cy="16.2" r="4.2"/><circle cx="12" cy="12" r="6"/></g><g stroke="#faf9f6" stroke-width="1.7" stroke-linecap="round" fill="none"><path d="M8.6 9.6l2.8 2.4-2.8 2.4"/><path d="M13.2 14.6h3.2"/></g></svg></span>
+              <span class="pcard__badge mono">AI</span>
+            </div>
+            <h3 class="pcard__name">Codex</h3>
+            <p class="pcard__role" data-i18n="collab.codexRole"></p>
+            <p class="pcard__desc" data-i18n="collab.codexDesc"></p>
+            <p class="pcard__tags mono">Frontend · Refactor · Auto</p>
+          </article>
+
+          <article class="pcard" data-id="gemini" data-links="obsidian">
+            <div class="pcard__top">
+              <span class="pcard__icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c.55 5.27 4.73 9.45 10 10-5.27.55-9.45 4.73-10 10-.55-5.27-4.73-9.45-10-10 5.27-.55 9.45-4.73 10-10z"/></svg></span>
+              <span class="pcard__badge mono">AI</span>
+            </div>
+            <h3 class="pcard__name">Gemini</h3>
+            <p class="pcard__role" data-i18n="collab.geminiRole"></p>
+            <p class="pcard__desc" data-i18n="collab.geminiDesc"></p>
+            <p class="pcard__tags mono">Copy · Translate · Research</p>
+          </article>
+
+          <article class="pcard" data-id="typeless" data-links="claude,codex,gemini,obsidian,vscode">
+            <div class="pcard__top">
+              <span class="pcard__icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M2.2 8.2 A10.5 10.5 0 0 1 18.6 19.4 A14 14 0 0 0 2.2 8.2 Z"/><path d="M14.2 14.9 C11.6 18.4 7.4 20.4 3.4 20.2 C5.2 18.2 6 15.6 5.6 12.6 C8.4 14.2 11.4 14.8 14.2 14.9 Z"/></svg></span>
+              <span class="pcard__badge mono">AI</span>
+            </div>
+            <h3 class="pcard__name">Typeless</h3>
+            <p class="pcard__role" data-i18n="collab.typelessRole"></p>
+            <p class="pcard__desc" data-i18n="collab.typelessDesc"></p>
+            <p class="pcard__tags mono">Voice · Dictation · Flow</p>
+          </article>
+        </div>
+
+        <p class="cgroup mono" data-i18n="collab.g2"></p>
+        <div class="pcards">
+          <article class="pcard" data-id="coze" data-links="claude,codex">
+            <div class="pcard__top">
+              <span class="pcard__icon"><svg viewBox="0 0 24 24"><rect x="2.2" y="2.2" width="19.6" height="19.6" rx="6.6" fill="currentColor"/><path d="M12 5.4c-3.6 0-6 2.6-6 6.1v4.7c0 .8.95 1.3 1.6.8l1.2-1 1.3 1.3c.42.42 1.1.42 1.5 0l1.4-1.3 1.4 1.3c.42.42 1.1.42 1.5 0l1.3-1.3 1.2 1c.65.5 1.6 0 1.6-.8v-4.7c0-3.5-2.4-6.1-6-6.1z" fill="#faf9f6"/><g stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"><path d="M9.3 10.9q.85 1 1.7 0"/><path d="M13 10.9q.85 1 1.7 0"/></g></svg></span>
+              <span class="pcard__badge mono">AI</span>
+            </div>
+            <h3 class="pcard__name">Coze</h3>
+            <p class="pcard__role" data-i18n="collab.cozeRole"></p>
+            <p class="pcard__desc" data-i18n="collab.cozeDesc"></p>
+            <p class="pcard__tags mono">Workflow · Bot · RAG</p>
+          </article>
+
+          <article class="pcard" data-id="obsidian" data-links="claude,codex,typeless">
+            <div class="pcard__top">
+              <span class="pcard__icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.4 1.8 16.6 4c.3.13.53.4.6.73l1.9 8.5c.07.3 0 .63-.18.88l-4.7 6.6c-.3.42-.85.57-1.32.36-1.7-.74-3.1-.86-4.93-.62-.5.07-.98-.2-1.16-.67L3.6 12.9c-.12-.3-.08-.66.1-.93L8 5.2c.1-.15.16-.33.18-.51l.25-2.1c.08-.66.78-1.06 1.4-.8l1.57.01z"/><path d="M12.1 2.5c.5 2.6.2 4.6-.5 6.4-.4 1.1-.4 2.3 0 3.4l2.6 6.9" stroke="#faf9f6" stroke-width="1.1" fill="none" stroke-linecap="round"/></svg></span>
+              <span class="pcard__badge mono">PKM</span>
+            </div>
+            <h3 class="pcard__name">Obsidian</h3>
+            <p class="pcard__role" data-i18n="collab.obsidianRole"></p>
+            <p class="pcard__desc" data-i18n="collab.obsidianDesc"></p>
+            <p class="pcard__tags mono">Notes · PKM · Thinking</p>
+          </article>
+
+          <article class="pcard" data-id="vscode" data-links="typeless,claude">
+            <div class="pcard__top">
+              <span class="pcard__icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 2.3 21.4 4.4c.37.18.6.55.6.96v13.28c0 .41-.23.78-.6.96L17 21.7a1.06 1.06 0 0 1-1.1-.13L7.6 14.9l-3.9 3-1.66-1.2a.8.8 0 0 1-.1-1.2L5.5 12 1.94 8.5a.8.8 0 0 1 .1-1.2L3.7 6.1l3.9 3 8.3-6.67c.32-.26.76-.3 1.1-.13zM8.9 12 17 18.2V5.8L8.9 12z"/></svg></span>
+              <span class="pcard__badge mono">INFRA</span>
+            </div>
+            <h3 class="pcard__name">VS Code</h3>
+            <p class="pcard__role" data-i18n="collab.vscodeRole"></p>
+            <p class="pcard__desc" data-i18n="collab.vscodeDesc"></p>
+            <p class="pcard__tags mono">IDE · Markdown · Extension</p>
+          </article>
+
+          <article class="pcard" data-id="github" data-links="claude,codex">
+            <div class="pcard__top">
+              <span class="pcard__icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2.17c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.66.41.36.78 1.05.78 2.12v3.15c0 .31.21.67.8.56A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg></span>
+              <span class="pcard__badge mono">INFRA</span>
+            </div>
+            <h3 class="pcard__name">GitHub</h3>
+            <p class="pcard__role" data-i18n="collab.githubRole"></p>
+            <p class="pcard__desc" data-i18n="collab.githubDesc"></p>
+            <p class="pcard__tags mono">Version · Scripts · Archive</p>
+          </article>
+        </div>
+      </div>
+
+      <p class="collab__me mono" data-i18n="collab.me"></p>
+    </section>
+
+    <!-- ===== CONTACT(黑底) ===== -->
+    <footer class="contact" id="contact">
+      <div class="contact__marquee" aria-hidden="true">
+        <div class="marquee__track marquee__track--slow">
+          <span>LET'S TALK&nbsp;✕&nbsp;LET'S TALK&nbsp;✕&nbsp;LET'S TALK&nbsp;✕&nbsp;</span>
+          <span>LET'S TALK&nbsp;✕&nbsp;LET'S TALK&nbsp;✕&nbsp;LET'S TALK&nbsp;✕&nbsp;</span>
+        </div>
+      </div>
+      <p class="contact__line serif" data-i18n="contact.line"></p>
+      <div class="contact__links mono">
+        <a href="mailto:cedriczhang0106@gmail.com">EMAIL — CEDRICZHANG0106@GMAIL.COM</a>
+      </div>
+      <p class="contact__foot mono">© 2026 CEDRIC · <span data-i18n="contact.foot"></span></p>
+    </footer>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
