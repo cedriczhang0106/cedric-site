@@ -13,7 +13,7 @@ const DICT = {
     "hero.edgeR": "AIGC ARTIST",
     "hero.blurb": "A studio of one. <em>AI is fast; I am right</em> — it drafts a hundred answers, I pick the one that matters.",
 
-    "statement.text": "这是一间一个人的工作室:我出<i>想法</i>和<i>品味</i>,模型出<i>手速</i>和<i>体力</i>——我们一起,做真正重要的数字体验。",
+    "statement.text": "这是一间一个人的工作室:我负责 <i>taste & ideas</i>,模型负责 <i>speed & muscle</i>——我们一起,做真正重要的 <i>digital experiences</i>。",
     "statement.sign": "CEDRIC — A STUDIO OF ONE",
 
     "about.chapter": "ABOUT / 六个字母,六个关键词",
