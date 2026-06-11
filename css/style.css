@@ -140,14 +140,15 @@ body {
 .statement__text i { color: var(--accent); }
 .statement__sign { margin-top: 40px; font-size: 0.62rem; color: #777; }
 .statement__strip {
-  display: flex; gap: clamp(10px, 1.4vw, 18px); flex-wrap: wrap;
+  display: flex; gap: clamp(8px, 1vw, 14px); flex-wrap: wrap;
+  justify-content: space-between;          /* 放大后撑满整行,不留大片空白 */
   margin-top: clamp(60px, 10vh, 110px);
 }
 /* 开屏同款图片瓷砖:GSAP 管外层 .sframe(飞入+视差),CSS 管内层 img(悬停点亮) */
 .sframe { display: block; will-change: transform; }
 .sframe img {
   display: block;
-  width: clamp(76px, 9vw, 118px); height: clamp(76px, 9vw, 118px);
+  width: clamp(96px, 10.2vw, 150px); height: clamp(96px, 10.2vw, 150px);
   object-fit: cover; border-radius: 8px;
   border: 1px solid #2c2a27;
   filter: grayscale(1) brightness(0.75);   /* 默认压成黑白,融进黑底 */
