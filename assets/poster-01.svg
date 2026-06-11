@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900">
+  <defs>
+    <linearGradient id="pg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2a2a2a"/>
+      <stop offset="100%" stop-color="#0c0c0c"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="900" fill="url(#pg)"/>
+  <rect x="30" y="30" width="540" height="840" fill="none" stroke="#3a3a3a" stroke-width="2"/>
+  <circle cx="300" cy="380" r="130" fill="none" stroke="#555" stroke-width="3"/>
+  <path d="M 190 470 q 110 -150 220 0" fill="none" stroke="#777" stroke-width="3"/>
+  <text x="300" y="620" text-anchor="middle" font-family="monospace" font-size="56" fill="#ddd" letter-spacing="8">WORK 01</text>
+  <text x="300" y="680" text-anchor="middle" font-family="monospace" font-size="20" fill="#888" letter-spacing="4">POSTER PLACEHOLDER</text>
+</svg>
